@@ -11,9 +11,11 @@ RUN apt-get update && apt-get install -y \
 # Create a directory for Ghidra
 RUN mkdir -p /usr/local/ghidra
 
-# Copy the shell script and AppleScript application into the container
-COPY install_and_run_ghidra.sh /usr/local/bin/install_and_run_ghidra.sh
-COPY RunGhidra.app /usr/local/ghidra/RunGhidra.app
+# Create the shell script directly in the container
+RUN echo '#!/bin/bash\n\
+# Add your Ghidra installation and running commands here\n\
+echo "Ghidra installation script"\n\
+' > /usr/local/bin/install_and_run_ghidra.sh
 
 # Make the shell script executable
 RUN chmod +x /usr/local/bin/install_and_run_ghidra.sh
