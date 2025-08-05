@@ -1,5 +1,5 @@
 # Use a base image with necessary tools for running scripts
-FROM ubuntu:latest
+FROM ubuntu:24.10
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
